@@ -8,10 +8,6 @@ beforeEach(() => {
   render(<App />);
 });
 
-test('shows a comment box', () => {
-  expect(screen.getByTestId('comment-box')).toBeTruthy();
-});
-
-test('shows a comment list', () => {
-  expect(screen.getByTestId('comment-list')).toBeTruthy();
+test('shows a header', () => {
+  expect(screen.getByTestId('header')).toBeTruthy();
 });

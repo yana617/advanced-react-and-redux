@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
-import { useDispatch } from 'react-redux'
+import { useDispatch } from 'react-redux';
 
 import { addComment, fetchComments } from 'store/reducers/comments';
+import requireAuth from 'utils/requireAuth';
 
 const CommentBox = () => {
   const [comment, setComment] = useState('');
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
 
   const handleChange = (event) => {
     setComment(event.target.value);
@@ -35,4 +36,4 @@ const CommentBox = () => {
   );
 };
 
-export default CommentBox;
+export default requireAuth(CommentBox);

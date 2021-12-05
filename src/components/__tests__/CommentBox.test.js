@@ -5,7 +5,14 @@ import userEvent from '@testing-library/user-event';
 
 import CommentBox from 'components/CommentBox';
 
+const mockedUsedNavigate = jest.fn();
+
 beforeEach(() => {
+  jest.mock('react-router-dom', () => ({
+    ...jest.requireActual('react-router-dom'),
+    useNavigate: () => mockedUsedNavigate,
+  }));
+
   render(<CommentBox />);
 });
 
